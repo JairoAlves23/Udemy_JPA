@@ -14,6 +14,11 @@ public class RemoverUsuario {
 		
 		Usuario usuario = em.find(Usuario.class, 3L);
 		
+		if (usuario != null) {
+			em.getTransaction().begin();
+			em.remove(usuario);
+			em.getTransaction().commit();
+		}
 		
 		em.close();
 		emf.close();
